@@ -161,3 +161,28 @@ body {
 .share-time{
     width: 50px;
 }
+
+/* -------------------- results page */
+
+.display-results {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 5px;
+  margin: 0 10vw;
+}
+
+.display-card {
+  background-color: white;
+}
+
+.display-card img {
+  width: 100%;
+}
+/* 
+.signup label {
+  display: block;
+}
+
+.new-dish label {
+  display: block;
+} */

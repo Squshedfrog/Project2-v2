@@ -67,7 +67,7 @@ router.post('/users/new', ( req , res ) => {
 
 router.get("/users/profile" , ( req , res ) => {
     
-    sql = 'select * from users where id = $1'
+    const sql = 'select * from users where id = $1'
     const id = res.locals.currentUser.id
     db.query(sql , [ id ] , ( err , dbRes ) => {
         const user = dbRes.rows[0]
@@ -100,7 +100,19 @@ router.post('/users/profile', ( req , res ) => {
     }) 
 })
 
+router.get('/users/recipes' , ( req , res ) => {
+    const userId = res.locals.currentUser.id
+   
+   const sql = `select * from recipes where user_id = ${userId}`
+   db.query( sql , ( err , dbRes ) => {
+        
+        const recipes = dbRes.rows
+        res.render("./explore/results", {
+        recipes : recipes  })
 
+})
+  
+})
 
 
 

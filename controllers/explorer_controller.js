@@ -28,14 +28,7 @@ router.get('/recipe/share', ensureLoggedIn , ( req , res ) => {
 })
 
 router.post('/recipe/share', ensureLoggedIn , ( req , res ) => {
-      /*let entryArr = Object.keys(req.body)
-        for ( let i = 0 ; i < entryArr.length ; i++ ){
-        if (entryArr[i] === '' ) { 
-
-        } 
-      }
-      */
-    
+         
     const pre_time = `{${req.body.pretimehr},${req.body.pretimemin}}`
     const cook_time = `{${req.body.cooktimehr} ,${req.body.cooktimemin}}`
     const user_id = req.session.userId
@@ -57,11 +50,15 @@ router.post('/recipe/search', ( req , res ) => {
     const { type } = req.body
     const sql = `SELECT * FROM recipes WHERE type LIKE $1;`
     db.query( sql ,[`%${type}%`], ( err , dbRes ) => {
-        let arr = []
+        /*let arr = []
         for ( recipe of dbRes.rows ){
             arr.push(recipe.cook_time)
         }
-        res.send(arr)
+        res.send(arr)*/
+        const recipes = dbRes.rows
+    res.render("./explore/results", {
+  recipes : recipes  })
+
     })
 })
 
