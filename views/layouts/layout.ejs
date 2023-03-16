@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="nav-bar"></div>
+        <h1><a class="nav-title" href="/">Project 2</a></h1>
+
+        <div class="session-info">
+        <% if (isLoggedIn()) { %>
+            
+            <p class="first-name">Welcome <%= currentUser.first_name.charAt(0).toUpperCase() + currentUser.first_name.slice(1) %></p>
+            
+            <form action="/sessions/logout" method="post">
+                <input type="hidden" name="_method" value="delete">
+                <button>Log Out</button>
+            </form>
+        <% } else { %>
+    
+            <a href="/users">Join Today</a>
+            <a href="/session">Sign In</a>
+        <% } %>
+        </div>
+    </div>
+    <div class="home-nav-bar">
+
+        <form action="/recipe/search" method="post">
+            <input type="hidden" name="type" value="Dinner">
+            <button class="hidden">Dinner</button>
+        </form>
+    
+        <form action="/recipe/search" method="post">
+            <input type="hidden" name="type" value="Finger Food">
+            <button class="hidden">Finger Food</button>
+        </form>
+    
+        <form action="/recipe/search" method="post">
+            <input type="hidden" name="type" value="Dessert">
+            <button class="hidden">Desert</button>
+        </form>
+    
+        <form action="/recipe/search" method="post">
+            <input type="hidden" name="type" value="Lunch Box">
+            <button class="hidden">Lunch Box</button>
+        </form>
+    
+    
+    </div>
+
+
+    <%- body %>
+    <script src="/java.js"></script>
+</body>
+</html>

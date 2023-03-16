@@ -1,0 +1,57 @@
+<h1>Share a recipe</h1>
+
+<form action="/recipe/share" method="post" class="share-form">
+    <div>
+        <label for="">Recipe name</label>
+            <input type="text" name="name" />
+    </div>  
+    <!-- Drop down menu   -->
+    <div>
+        <label for="">Choose</label>
+        <select name="type1" class="share-dropdown">  
+            <option value="Dinner">Dinner</option>  
+            <option value="Finger Food">Finger Food</option>  
+            <option value="Dessert">Desert</option>  
+            <option value="Lunch Box">Lunch Box</option>  
+        </select>
+        <select name="type2" class="share-dropdown">
+            <option value="">-------</option>
+            <option value="Vegetarian">Vegetarian</option>
+            <option value="Vegan">Vegan</option>
+        </select>
+    </div>
+    <div>
+        <label for="">Difficulty</label>
+            <select name="skill" class="share-dropdown">
+                <option value="Easy">Easy</option>
+                <option value="Intermediate">Intermediate</option>
+            <option value="Difficult">Difficult</option>
+        </select>
+    </div>
+    <div>
+        <label for="">Ingredients</label>
+            <input type="text" name="ingredients" />
+    
+    </div>
+    <div>
+        <label for="">Img Url</label>
+            <input type="text" name="img_url" />
+    </div>
+    <div>
+        <label for="">Prep Time</label>
+            <input class="share-time" type="number" name="pretimehr" value="0"/><span>hr</span>
+            <input class="share-time" type="number" name="pretimemin" value="0"/><span>min</span>
+    
+    </div>
+    <div>
+        <label for="">Cook Time</label>
+            <input class="share-time" type="number" name="cooktimehr" value="0"/><span>hr</span>
+            <input class="share-time" type="number" name="cooktimemin" value="0"/><span>min</span>
+    </div>
+    <div>
+        <label for="">Recipe</label>
+            <input type="text" name="recipe" />
+    </div>
+           
+    <button>Share</button>
+</form>

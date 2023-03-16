@@ -1,0 +1,18 @@
+<form action="/users/new" method="post">
+
+    
+    <input type="text" name="email" placeholder="Email address">
+
+    
+    <input type="text" name="first_name" placeholder="First name">
+   
+    
+    <input type="text" name="surname" placeholder="Surname">
+    
+    
+    <input class="passwordReveal" type="password" name="password" placeholder="Password">
+    <input  type="checkbox" onclick="passwordReveal()">Show Password
+
+    <button onclick="passwordSubmit()" >Continue</button>
+    <%= message %>
+</form>

@@ -1,0 +1,105 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    /* border: 1px solid red; */
+
+}
+a {
+    text-decoration: none;
+}
+body {
+    padding: 10px;
+    background-color: rgb(236, 236, 236);
+}
+
+
+/* -------------------Layout Nav-bar */
+
+.session-info{
+    display: grid;
+    
+    margin: 0 5vw 0 70vw; 
+    grid-template-columns: 4fr 2fr;
+    width: 200px;
+    justify-content: space-around;
+    
+}
+.session-info button{
+    
+    background-color: inherit;
+    border-radius: 5px;
+    border: 1px solid gray;
+    width: 100%;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+    0 10px 10px rgba(174, 174, 174, 0.22);
+}
+
+.session-info a {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+
+.nav-title {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+} 
+
+
+
+
+/* ------------------Home Nav-bar */
+
+.home-nav-bar {
+    margin: 0 30vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 5px;
+    margin-bottom: 5vh;
+   
+}
+
+.home-nav-bar button{
+    width: 100%;
+    background-color: inherit;
+    border: none;    
+    cursor:pointer;
+}
+
+/* ------------------- Home page */
+
+.grid-home{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    margin: 0 20vw;
+    gap: 5px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+          0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.grid-left {
+    width: 40vw;
+}
+.grid-left img {
+    width: 100%;
+}
+
+.grid-right{
+    width: 20vw;
+}
+.grid-right img {
+    width: 100%;
+}
+
+
+
+/* ------------------- share page */
+
+.share-time{
+    width: 50px;
+}
