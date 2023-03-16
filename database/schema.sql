@@ -26,6 +26,7 @@ CREATE TABLE recipes (
 );
 ALTER TABLE recipes ALTER COLUMN cook_time TYPE text;
 ALTER TABLE recipes ALTER COLUMN pre_time TYPE integer ARRAY;
+UPDATE users SET first_name = 'update' where id = 22;
 
 
 INSERT INTO tracks ( name , location , directions , img_url , distance , difficulty , multiday, multi_day , rating ,user_id ) values ( 'juliblee park','sydney glebe' , 'bottom glebe point rd', 'http://www.woolacotts.com.au/news/wp-content/uploads/2014/10/glebe-foreshore.jpg', 5.6, 2 , false ,0, 1, 1 );

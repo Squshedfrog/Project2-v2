@@ -47,8 +47,8 @@ router.post('/recipe/share', ensureLoggedIn , ( req , res ) => {
     sql = `INSERT INTO recipes ( name , type , skill , ingredients , img_url , pre_time , cook_time, recipe , rating ,user_id ) values (  $1 , $2 , $3 , $4 , $5, $6 , $7 ,$8 , 1 , ${user_id} );`
 
     db.query( sql , [name , type ,skill , ingredients , img_url , pre_time , cook_time , recipe ] , ( err ,dbRes ) => {
-    
-    res.redirect('/');
+        res.render("./explore/share")
+    //res.redirect('/');
 
     })    
 })
@@ -67,7 +67,7 @@ router.post('/recipe/search', ( req , res ) => {
 
 
 router.get("/recipe/:id", ensureLoggedIn, (req, res) => {
-    const sql = `select * from dishes where id = $1;`
+    const sql = `select * from recipes where id = $1;`
     console.log(sql)
   
     db.query(sql, [req.params.id], (err, dbRes) => {
@@ -75,7 +75,7 @@ router.get("/recipe/:id", ensureLoggedIn, (req, res) => {
         console.log(err)
       } else {
         const recipe = dbRes.rows[0]
-        res.render("recipe_details", { recipe })
+        res.render("./explore/recipe_details", { recipe })
       }
     })
   })

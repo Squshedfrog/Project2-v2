@@ -16,10 +16,23 @@
             
             <p class="first-name">Welcome <%= currentUser.first_name.charAt(0).toUpperCase() + currentUser.first_name.slice(1) %></p>
             
-            <form action="/sessions/logout" method="post">
-                <input type="hidden" name="_method" value="delete">
-                <button>Log Out</button>
-            </form>
+            
+            <div class="dropdown">
+                <button class="dropbtn">User Options</button>
+                <div class="dropdown-content">
+                <a href="/users/profile">Profile</a>
+                <a href="/recipe/share">Share a Recipe</a>
+                <a href="#">Update Your Recipe</a>
+                
+                <form action="/sessions/logout" method="post">
+                    <input type="hidden" name="_method" value="delete">
+                    <button>Log Out</button>
+                </form>
+                </div>
+              </div>
+              
+
+            
         <% } else { %>
     
             <a href="/users">Join Today</a>

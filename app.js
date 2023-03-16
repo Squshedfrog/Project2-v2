@@ -44,14 +44,14 @@ const sessionController = require('./controllers/session_controller')
 
 
 app.get('/' , ( req , res ) => {
-    sql = `SELECT * FROM recipes;`
+    let offset = Math.floor(Math.random()*10)
+    sql = `SELECT * FROM recipes offset ${offset} LIMIT 3;`
     db.query( sql , ( err ,dbRes ) => {
         const recipes = dbRes.rows
-
+         
         let position = Math.floor(Math.random()*recipes.length)
         
         const titleRecipe = recipes[position]
-        //console.log(titleRecipe)
         recipes.splice( position , 1)
         //console.clear()
         //console.log(recipes.length)

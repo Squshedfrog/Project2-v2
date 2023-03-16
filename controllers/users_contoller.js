@@ -60,15 +60,45 @@ router.post('/users/new', ( req , res ) => {
     
 })
 
-router.get("/user/pass", (( req , res ) => {
-    console.log(req.locals.email)
-    res.render('/')
-}))
+// router.get("/user/pass", (( req , res ) => {
+//     console.log(req.locals.email)
+//     res.render('/')
+// }))
 
+router.get("/users/profile" , ( req , res ) => {
+    
+    sql = 'select * from users where id = $1'
+    const id = res.locals.currentUser.id
+    db.query(sql , [ id ] , ( err , dbRes ) => {
+        const user = dbRes.rows[0]
+        res.render('./users/profile', { user, })
+    })
+    
+})
 
+router.post('/users/profile', ( req , res ) => {
+    const firstName = req.body.first_name;
+    const surname = req.body.surname;
+    //const passwordCurrent = req.body.current_password
+    const NewPlaintextPassword = req.body.newPassword
 
+    bcrypt.genSalt(10, (err , salt) => {
 
+        
 
+        bcrypt.hash(NewPlaintextPassword, salt, (err, digestedPassword) => {
+    
+
+            // need to insert password
+            const sql = `UPDATE users SET first_name = $1 , last_name = $2 , password_digest = '${digestedPassword}' where id = ${res.locals.currentUser.id};`
+    
+                db.query( sql,[ firstName , surname  ] , ( err , dbRes ) => {
+        
+            })
+            res.redirect('/')
+        })
+    }) 
+})
 
 
 

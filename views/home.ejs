@@ -1,10 +1,10 @@
 
 
-<a href="/recipe/share">Share a Recipe</a>
+
 
     <div class="grid-home">
         <section class="grid-left">
-        <a class="img-tiles" href=""><img src="<%= titleRecipe.img_url %>" alt="" /></a>
+        <a class="img-tiles" href="/recipe/<%= titleRecipe.id %>"><img src="<%= titleRecipe.img_url %>" alt="" /></a>
         </section>
 
         <section class="grid-right">
@@ -12,7 +12,7 @@
         <% for (let recipe of recipes) { %>
         
     
-        <a href=""><img class="img-tiles" src="<%= recipe.img_url %>" alt="" /></a>
+        <a href="/recipe/<%= recipe.id %>"><img class="img-tiles" src="<%= recipe.img_url %>" alt="" /></a>
     
   
         <% } %>
