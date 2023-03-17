@@ -80,7 +80,7 @@ router.get("/users/profile" , ( req , res ) => {
     
 })
 
-router.post('/users/profile', ( req , res ) => {
+router.put('/users/profile', ( req , res ) => {
     const firstName = req.body.first_name;
     const surname = req.body.surname;
     //const passwordCurrent = req.body.current_password
