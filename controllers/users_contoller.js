@@ -43,15 +43,19 @@ router.post('/users/new', ( req , res ) => {
             })
             
                         
-            db.query( `Select id from users;`, ( err , dbRes ) => {
+            // db.query( `Select id from users;`, ( err , dbRes ) => {
                
-                req.session.userId = dbRes.rows.length + 1
-                res.locals.currentUser.first_name = firstName
-                res.render('./users/welcome')
+            //     //req.session.userId = dbRes.rows.length + 1
+            //     res.locals.currentUser.first_name = firstName
+            //     //res.render('./users/welcome')
+            //     res.redirect('/')
+                    res.locals.message = 'Login to continue'
+                    res.render('./users/login-form' )    
             })
             // res.locals.message = 'Welcom log in to Explore';
             // res.render('./users/login-form')    
-        })} else {
+        //})
+            } else {
             res.locals.message = '**The Email you have entered is already registed';
             res.render('./users/signup-form' )    
         }

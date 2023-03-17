@@ -50,11 +50,7 @@ router.post('/recipe/search', ( req , res ) => {
     const { type } = req.body
     const sql = `SELECT * FROM recipes WHERE type LIKE $1;`
     db.query( sql ,[`%${type}%`], ( err , dbRes ) => {
-        /*let arr = []
-        for ( recipe of dbRes.rows ){
-            arr.push(recipe.cook_time)
-        }
-        res.send(arr)*/
+        
         const recipes = dbRes.rows
     res.render("./explore/results", {
   recipes : recipes  })
@@ -71,14 +67,24 @@ router.get("/recipe/:id", ensureLoggedIn, (req, res) => {
       if (err) {
         console.log(err)
       } else {
+        const userId = res.locals.currentUser.id
         const recipe = dbRes.rows[0]
-        res.render("./explore/recipe_details", { recipe })
+        res.render("./explore/recipe_details", { recipe , userId })
       }
     })
   })
-
-
-
+/*
+  router.get("/recipe/edit/:dishId" ,ensureLoggedIn, ( req , res ) => {
+    const sql = 'select * from recipes where id = $1'
+    
+    db.query(sql , [req.params.id] , ( err , dbRes ) => {
+      const recipe = dbRes.rows[0]
+      console.log(recipe.rows[0].name)
+      res.redirect('/')
+    })
+    
+})
+*/
 
 
 
