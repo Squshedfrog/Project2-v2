@@ -35,7 +35,7 @@ router.post('/recipe/share', ensureLoggedIn , ( req , res ) => {
     const type = `${req.body.type1} ${req.body.type2}`
     const { name , skill , ingredients , img_url , recipe } = req.body
     
-    console.log(pre_time)
+    //console.log(pre_time)
     
     sql = `INSERT INTO recipes ( name , type , skill , ingredients , img_url , pre_time , cook_time, recipe , rating ,user_id ) values (  $1 , $2 , $3 , $4 , $5, $6 , $7 ,$8 , 1 , ${user_id} );`
 
@@ -101,8 +101,23 @@ router.delete('/recipe/delete/:id' ,ensureLoggedIn, ( req , res ) =>{
     
 })
 
+router.put('/recipe/update' ,ensureLoggedIn, ( req , res ) => {
+  
+  const { name , skill , ingredients , img_url , recipe ,id } = req.body
+  // -- UPDATE users SET first_name = 'update' where id = 22;
+  let sql = `update recipes set name = '${name}' where id =${id};`
+  
+  db.query(sql ,  ( err , dbRes ) => {
 
+  })
+  sql = `select * from recipes where id =${id}`
+  db.query(sql , ( err , dbRes ) => {
+    const userId = res.locals.currentUser.id
+    const recipe = dbRes.rows[0]
+    res.render("./explore/recipe_details", { recipe , userId })
 
+  })
+})
 
 // ---------------- export ---------------
 module.exports = router

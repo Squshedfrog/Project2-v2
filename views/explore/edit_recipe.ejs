@@ -2,13 +2,15 @@
 
 <h1>Update Recipe</h1>
 
-<form action="/recipe/share" method="post" class="share-form">
+<form action="/recipe/update" method="post" class="share-form">
+    <input type="hidden" name="_method" value="put" />
+    <input type="hidden" name="id" value="<%= recipe.id %>"/>
     <div>
         <label for="">Recipe name</label>
-            <input type="text" name="name" />
+            <input type="text" name="name" value="<%= recipe.name %>"/>
     </div>  
     <!-- Drop down menu   -->
-    <div>
+    <!-- <div>
         <label for="">Choose</label>
         <select name="type1" class="share-dropdown">  
             <option value="Dinner">Dinner</option>  
@@ -21,7 +23,7 @@
             <option value="Vegetarian">Vegetarian</option>
             <option value="Vegan">Vegan</option>
         </select>
-    </div>
+    </div> -->
     <div>
         <label for="">Difficulty</label>
             <select name="skill" class="share-dropdown">
@@ -32,14 +34,14 @@
     </div>
     <div>
         <label for="">Ingredients</label>
-            <input type="text" name="ingredients" />
+            <input type="text" name="ingredients" value="<%= recipe.ingredients %>"/>
     
     </div>
     <div>
         <label for="">Img Url</label>
-            <input type="text" name="img_url" />
+            <input type="text" name="img_url"value="<%= recipe.img_url %>" />
     </div>
-    <div>
+    <!-- <div>
         <label for="">Prep Time</label>
             <input class="share-time" type="number" name="pretimehr" value="0"/><span>hr</span>
             <input class="share-time" type="number" name="pretimemin" value="0"/><span>min</span>
@@ -49,11 +51,11 @@
         <label for="">Cook Time</label>
             <input class="share-time" type="number" name="cooktimehr" value="0"/><span>hr</span>
             <input class="share-time" type="number" name="cooktimemin" value="0"/><span>min</span>
-    </div>
+    </div> -->
     <div>
         <label for="">Recipe</label>
-            <input type="text" name="recipe" />
+            <input type="text" name="recipe" value="<%= recipe.recipe %>"/>
     </div>
            
-    <button>Share</button>
+    <button>Update</button>
 </form>

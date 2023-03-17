@@ -178,11 +178,24 @@ body {
 .display-card img {
   width: 100%;
 }
-/* 
-.signup label {
-  display: block;
+
+
+/* ------------------------ details page */
+
+.detail-grid {
+  color: darkblue;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-right: 65vw;
+  margin-left: 10vw;
 }
 
-.new-dish label {
-  display: block;
-} */
+.detail-grid button{
+  border: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+.detail-grid a {
+  color: inherit;
+}

@@ -1,11 +1,13 @@
 
 <% if ( userId == recipe.user_id ) { %>
+    <div class="detail-grid">
         <a href="/recipe/edit/<%= recipe.id %>">Edit Recipe</a>
         
         <form action="/recipe/delete/<%= recipe.id %>" method="post">
             <input type="hidden" name="_method" value="delete" />
             <button class="delete-button">Delete</button>
         </form>    
+    </div>   
     <% } %>
 
 <h2><%= recipe.name %></h2>
