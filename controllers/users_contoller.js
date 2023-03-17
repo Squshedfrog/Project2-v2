@@ -83,9 +83,17 @@ router.get("/users/profile" , ( req , res ) => {
 router.put('/users/profile', ( req , res ) => {
     const firstName = req.body.first_name;
     const surname = req.body.surname;
+    
     //const passwordCurrent = req.body.current_password
     const NewPlaintextPassword = req.body.newPassword
-
+    if ( NewPlaintextPassword.length === 0 ){
+        const sql = `UPDATE users SET first_name = $1 , last_name = $2 where id = ${res.locals.currentUser.id};`
+    
+                db.query( sql,[ firstName , surname  ] , ( err , dbRes ) => {
+        
+            })
+            res.redirect('/')
+    } else {
     bcrypt.genSalt(10, (err , salt) => {
 
         
@@ -100,8 +108,10 @@ router.put('/users/profile', ( req , res ) => {
         
             })
             res.redirect('/')
+        
         })
     }) 
+}
 })
 
 router.get('/users/recipes' , ( req , res ) => {
