@@ -64,10 +64,6 @@ router.post('/users/new', ( req , res ) => {
     
 })
 
-// router.get("/user/pass", (( req , res ) => {
-//     console.log(req.locals.email)
-//     res.render('/')
-// }))
 
 router.get("/users/profile" , ( req , res ) => {
     

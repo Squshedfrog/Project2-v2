@@ -1,7 +1,11 @@
 
 <% if ( userId == recipe.user_id ) { %>
         <a href="/recipe/edit/<%= recipe.id %>">Edit Recipe</a>
-
+        
+        <form action="/recipe/delete/<%= recipe.id %>" method="post">
+            <input type="hidden" name="_method" value="delete" />
+            <button class="delete-button">Delete</button>
+        </form>    
     <% } %>
 
 <h2><%= recipe.name %></h2>

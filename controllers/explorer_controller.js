@@ -73,18 +73,34 @@ router.get("/recipe/:id", ensureLoggedIn, (req, res) => {
       }
     })
   })
-/*
-  router.get("/recipe/edit/:dishId" ,ensureLoggedIn, ( req , res ) => {
-    const sql = 'select * from recipes where id = $1'
+
+router.get("/recipe/edit/:id" ,ensureLoggedIn, ( req , res ) => {
     
-    db.query(sql , [req.params.id] , ( err , dbRes ) => {
-      const recipe = dbRes.rows[0]
-      console.log(recipe.rows[0].name)
-      res.redirect('/')
+  const sql = `select * from recipes where id = ${req.params.id};`
+  
+    db.query(sql , ( err , dbRes ) => {
+
+    const recipe = dbRes.rows[0]
+      //console.log(Object.keys(recipe))
+    //  res.redirect('/')
+
+      res.render("./explore/edit_recipe", { recipe  })
+      }
+  
+    
+)
+})
+    
+router.delete('/recipe/delete/:id' ,ensureLoggedIn, ( req , res ) =>{
+    const recipe = req.params.id
+    const sql = `DELETE FROM recipes WHERE id = '${recipe}';`
+    db.query( sql , ( err , dbRes ) => {
+    res.redirect('/');
     })
+
     
 })
-*/
+
 
 
 
