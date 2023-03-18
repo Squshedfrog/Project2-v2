@@ -105,9 +105,9 @@ router.put('/recipe/update' ,ensureLoggedIn, ( req , res ) => {
   
   const { name , skill , ingredients , img_url , recipe ,id } = req.body
   // -- UPDATE users SET first_name = 'update' where id = 22;
-  let sql = `update recipes set name = '${name}' where id =${id};`
+  let sql = `update recipes set name = $1, recipe = $2 where id =${id};`
   
-  db.query(sql ,  ( err , dbRes ) => {
+  db.query(sql , [ name , recipe], ( err , dbRes ) => {
 
   })
   sql = `select * from recipes where id =${id}`
